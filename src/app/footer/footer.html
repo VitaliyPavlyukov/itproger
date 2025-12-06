@@ -1,0 +1,5 @@
+<footer [ngClass]="{footer: username != ''}">
+    <p *ngIf="username" [ngStyle]="{'color': username.length > 1 ? 'green' : 'black'}">Copyrights! Hello, {{ username }}</p>    
+    <input type="text" [(ngModel)]="username" placeholder="Введите имя">
+    <button (click)="onSubscribe()">Подписаться</button>    
+</footer>
