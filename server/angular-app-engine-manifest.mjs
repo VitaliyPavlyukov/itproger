@@ -1,6 +1,6 @@
 
 export default {
-  basePath: 'https://VitaliyPavlyukov.github.io/itproger',
+  basePath: '/',
   supportedLocales: {
   "en-US": ""
 },
