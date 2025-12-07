@@ -17,6 +17,6 @@ export class App {
     alert("all working");
   }
 
-  title = 'Angular App'
+  title = 'Сайт'
   
 }
