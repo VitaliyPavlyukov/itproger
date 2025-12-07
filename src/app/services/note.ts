@@ -11,12 +11,16 @@ export class NoteService {
 
   constructor(private http: HttpClient) {}
 
-  useLocal = false
+  useLocalData = true
 
   fetchNotes() {
-    this.http.get<Note[]>(this.apiUrl).subscribe((data) => {
+    if (this.useLocalData){
+      this.notes.set(this.localNotes);
+    } else {
+      this.http.get<Note[]>(this.apiUrl).subscribe((data) => {
         this.notes.set(data);
-    })
+      })
+    }    
   }
 
   localNotes = [
@@ -46,15 +50,14 @@ export class NoteService {
       title: title,
       content: content,
       createdAt: new Date()
-    }
+    };
 
-    this.http.post<Note>(this.apiUrl, newNote).subscribe((note) => {
-      this.notes.update(notes => [...notes, newNote]);  
-    })
-
-    if (this.useLocal) {
+    if (this.useLocalData) {
       this.notes.update(notes => [...notes, newNote]);
+    } else {
+        this.http.post<Note>(this.apiUrl, newNote).subscribe((note) => {
+        this.notes.update(notes => [...notes, newNote]);  
+      })
     }
-  }
-  
+  }  
 }
