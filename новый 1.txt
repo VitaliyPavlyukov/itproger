@@ -1,0 +1,14 @@
+git clone https://github.com/VitaliyPavlyukov/react-example.git
+
+npm install -g @angular/cli
+npm install @angular/cli
+
+"C:\Program Files\nodejs\node.exe"
+ng serve
+ng generate service services/note
+//ng generate module app-routing --flat --module=app
+ng generate module app-routing --flat
+ng g c pages/home --standalone
+ng g c pages/about --standalone
+ng g c pages/note-detail --standalone
+ng g c components/note-add
