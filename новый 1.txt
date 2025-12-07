@@ -1,4 +1,4 @@
-git clone https://github.com/VitaliyPavlyukov/react-example.git
+git clone https://github.com/VitaliyPavlyukov/itproger.git
 
 npm install -g @angular/cli
 npm install @angular/cli
@@ -18,3 +18,9 @@ ng g pipe pipes/note-shortener
 
 npm i -g json-server
 json-server --watch data.json
+
+ng add angular-cli-ghpages
+ng build --configuration production --base-href "https://VitaliyPavlyukov.github.io/itproger/"
+angular-cli-ghpages --dir=dist/itproger
+
+https://vitaliypavlyukov.github.io/itproger/browser/index.csr.html
