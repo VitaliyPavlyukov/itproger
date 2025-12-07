@@ -24,3 +24,6 @@ ng build --configuration production --base-href "https://VitaliyPavlyukov.github
 angular-cli-ghpages --dir=dist/itproger
 
 https://vitaliypavlyukov.github.io/itproger/browser/index.csr.html
+
+https://angdev.ru/angular/deployment/#_3
+
