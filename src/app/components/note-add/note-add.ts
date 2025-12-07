@@ -2,10 +2,11 @@ import { Component, signal } from '@angular/core';
 import {Note} from '../../models/note.model'
 import { NoteService } from '../../services/note'
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-note-add',
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './note-add.html',
   styleUrl: './note-add.css',
 })
@@ -17,7 +18,13 @@ export class NoteAdd {
     content: ''
   })
 
-protected addNote() {
+protected submitted = false;
+
+protected addNote(form: any) {
+    this.submitted = true;
+
+    if(form.invalid) return;
+
     const noteData = this.newNote();
     if (!noteData.title || !noteData.content) return;
 
@@ -27,5 +34,8 @@ protected addNote() {
       title: '',
       content: ''
     });
+
+    form.resetForm();
+    this.submitted = false;
   }
 }
