@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import {Note} from '../../models/note.model'
+import { Note } from '../../models/note.model'
 import { NoteService } from '../../services/note'
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './note-add.html',
   styleUrl: './note-add.css',
 })
+
 export class NoteAdd {
   constructor(private noteService: NoteService) {}
 
