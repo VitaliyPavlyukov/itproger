@@ -22,4 +22,5 @@ export class NoteDetail {
       this.note = this.noteService.getNotes()().find(n => n.id === this.noteId);
     })
   }
+  
 }
