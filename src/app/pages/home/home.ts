@@ -20,7 +20,7 @@ export class Home {
   }
 
   ngOnInit() {
-    console.log('ngOnInit!!!');
+    //console.log('ngOnInit');
     this.noteService.fetchNotes();
   }
 
