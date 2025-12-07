@@ -14,3 +14,4 @@ ng g c pages/note-detail --standalone
 ng g c components/note-add
 ng g c pages/movies --standalone
 ng generate service services/movies
+ng g pipe pipes/note-shortener

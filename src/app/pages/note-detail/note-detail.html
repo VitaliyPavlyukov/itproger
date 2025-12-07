@@ -2,7 +2,7 @@
 
 <p *ngIf="note">
     <strong>{{ note.title }}</strong>
-    {{ note.content }}
+    {{ note.content | noteShortener:10 }}
     <em>{{ note.createdAt | date:'medium' }}</em>
 </p>
 
