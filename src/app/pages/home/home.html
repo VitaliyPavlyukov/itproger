@@ -2,9 +2,9 @@
 
 <ul>
   <li *ngFor="let note of notes()">
-    <strong>{{ note.title }}</strong>
-    {{ note.content }}
-    <small>{{ note.createdAt | date:'short' }}</small>
+    <a [routerLink]="['/note', note.id]">{{ note.title }}</a>
+    <!-- {{ note.content }}
+    <small>{{ note.createdAt | date:'short' }}</small> -->
   </li>
 </ul>
 
