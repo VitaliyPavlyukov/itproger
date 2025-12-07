@@ -1,11 +1,25 @@
 import { Injectable, signal } from '@angular/core';
 import { Note } from '../models/note.model'
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class NoteService {
-  private readonly notes = signal<Note[]>([
+
+  private readonly apiUrl = 'http://localhost:3000/notes';
+
+  constructor(private http: HttpClient) {}
+
+  useLocal = false
+
+  fetchNotes() {
+    this.http.get<Note[]>(this.apiUrl).subscribe((data) => {
+        this.notes.set(data);
+    })
+  }
+
+  localNotes = [
     {
       id: 1,
       title: 'Первая заметка',
@@ -18,7 +32,9 @@ export class NoteService {
       content: 'Это наша вторая заметка',
       createdAt: new Date()
     }
-  ]);
+  ];
+
+  private readonly notes = signal<Note[]>([]);
 
   getNotes() {
     return this.notes;
@@ -32,7 +48,13 @@ export class NoteService {
       createdAt: new Date()
     }
 
-    this.notes.update(notes => [...notes, newNote]);
+    this.http.post<Note>(this.apiUrl, newNote).subscribe((note) => {
+      this.notes.update(notes => [...notes, newNote]);  
+    })
+
+    if (this.useLocal) {
+      this.notes.update(notes => [...notes, newNote]);
+    }
   }
   
 }

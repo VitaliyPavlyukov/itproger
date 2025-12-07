@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {Note} from '../../models/note.model'
+import { Note } from '../../models/note.model'
 import { NoteService } from '../../services/note'
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -17,6 +17,11 @@ export class Home {
 
   showAlert() {
     alert("Clicked");
+  }
+
+  ngOnInit() {
+    console.log('ngOnInit!!!');
+    this.noteService.fetchNotes();
   }
 
   protected get notes() {
