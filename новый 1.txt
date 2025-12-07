@@ -12,3 +12,5 @@ ng g c pages/home --standalone
 ng g c pages/about --standalone
 ng g c pages/note-detail --standalone
 ng g c components/note-add
+ng g c pages/movies --standalone
+ng generate service services/movies
